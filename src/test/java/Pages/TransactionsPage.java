@@ -1,3 +1,5 @@
+package Pages;
+
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -55,8 +57,6 @@ public class TransactionsPage {
     }
 
     public void checkTransactionsHasItself() {
-        dateTimeStart.click();
-        dateTimeStart.sendKeys("0");
         Assertions.assertEquals("Credit", typeOfTransaction1.getText());
         Assertions.assertEquals("Debit", typeOfTransaction2.getText());
     }

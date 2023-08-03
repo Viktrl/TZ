@@ -1,3 +1,5 @@
+package Pages;
+
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -69,6 +71,11 @@ public class CustomerAccountPage {
     }
 
     public void openTransactionsPage() {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         transactionsButton.click();
     }
 }

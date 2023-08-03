@@ -1,3 +1,6 @@
+package Helpers;
+
+import Pages.TransactionsPage;
 import com.opencsv.CSVWriter;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.WebElement;
@@ -9,7 +12,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CSVFileMaker {
+public class CSVFileMaker extends Urls {
     WebElement dateTimeOfTransaction1;
     WebElement amountOfTransaction1;
     WebElement typeOfTransaction1;
@@ -27,8 +30,6 @@ public class CSVFileMaker {
     }
 
     public void initDataForGenerateCSV() {
-        String filePath = "c:\\test\\test.csv";
-
         String[] header = {"Дата-времяТранзакции", "Сумма", "ТипТранзакции"};
         String[] record1 = {dateTimeOfTransaction1.getText(), amountOfTransaction1.getText(), typeOfTransaction1.getText()};
         String[] record2 = {dateTimeOfTransaction2.getText(), amountOfTransaction2.getText(), typeOfTransaction2.getText()};

@@ -1,3 +1,9 @@
+import Helpers.CSVFileMaker;
+import Helpers.Urls;
+import Pages.CustomerAccountPage;
+import Pages.CustomerChoicePage;
+import Pages.HomePage;
+import Pages.TransactionsPage;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -7,7 +13,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 
-public class BankAppTest {
+public class BankAppTest extends Urls {
     WebDriver driver;
 
     @BeforeEach
@@ -15,7 +21,7 @@ public class BankAppTest {
         WebDriverManager.chromedriver().setup();
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
-        driver = new RemoteWebDriver(new URL(BrowserFactory), capabilities);
+        driver = new RemoteWebDriver(new URL(gridUrl), capabilities);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
