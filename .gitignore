@@ -4,5 +4,6 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
-.idea/
+/.idea
 selenium-server-4.11.0.jar
+/allure-results
