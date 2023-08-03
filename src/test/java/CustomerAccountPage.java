@@ -1,15 +1,12 @@
-import org.openqa.selenium.By;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 import java.time.LocalDate;
-
 
 public class CustomerAccountPage {
     private WebDriver driver;
@@ -40,8 +37,7 @@ public class CustomerAccountPage {
     int fibonacci(int n) {
         if (n <= 1) {
             return n;
-        }
-        else {
+        } else {
             return fibonacci(n-1) + fibonacci(n-2);
         }
     }
@@ -54,8 +50,7 @@ public class CustomerAccountPage {
                 .until(ExpectedConditions.attributeToBe(form,"ng-submit","deposit()"));
         if (firstResult) {
             amountField.sendKeys(fibonacciString);
-            System.out.println("deposit amount has sent");
-        } else System.out.println("deposit ng-submit != deposit()");
+        }
         depositWithdrawButton.click();
     }
 
@@ -65,14 +60,12 @@ public class CustomerAccountPage {
                 .until(ExpectedConditions.attributeToBe(form,"ng-submit","withdrawl()"));
         if (firstResult) {
             amountField.sendKeys(fibonacciString);
-            System.out.println("withdraw amount has sent");
-        } else System.out.println("withdrawl ng-submit != withdrawl()");
+        }
         depositWithdrawButton.click();
     }
 
     public void checkBalance() {
-        balanceAmount.getText().toString().contains("0");
-        System.out.println(balanceAmount.getText());
+        Assertions.assertEquals("0", balanceAmount.getText());
     }
 
     public void openTransactionsPage() {

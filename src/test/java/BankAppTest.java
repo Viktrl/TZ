@@ -1,15 +1,11 @@
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 public class BankAppTest {
     WebDriver driver;
@@ -17,12 +13,11 @@ public class BankAppTest {
     @BeforeEach
     public void setup() throws MalformedURLException {
         WebDriverManager.chromedriver().setup();
-        //driver = new ChromeDriver();
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
-        //capabilities.setPlatform(Platform.WIN10);
-        driver = new RemoteWebDriver(new URL("http://192.168.56.1:4444"), capabilities);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver = new RemoteWebDriver(new URL(BrowserFactory), capabilities);
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @Test
@@ -42,7 +37,9 @@ public class BankAppTest {
 
         TransactionsPage transactionsPage = new TransactionsPage(driver);
         transactionsPage.checkTransactionsHasItself();
-        transactionsPage.initDataForGenerateCSV();
+
+        CSVFileMaker csvFileMaker = new CSVFileMaker(transactionsPage);
+        csvFileMaker.initDataForGenerateCSV();
     }
 
     @AfterEach
