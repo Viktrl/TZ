@@ -1,0 +1,9 @@
+[server]
+# Start on a different port than normal
+port = 4445
+host = "localhost"
+
+[node]
+max-sessions = 12
+
+# java -jar selenium-server-4.11.0.jar standalone --config gridConfig.toml
