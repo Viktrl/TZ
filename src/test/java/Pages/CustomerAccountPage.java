@@ -48,9 +48,9 @@ public class CustomerAccountPage {
 
     public void makeDeposit() {
         depositButton.click();
-        Boolean firstResult = new WebDriverWait(driver, Duration.ofSeconds(10))
+        Boolean isDeposit = new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.attributeToBe(form,"ng-submit","deposit()"));
-        if (firstResult) {
+        if (isDeposit) {
             amountField.sendKeys(fibonacciString);
         }
         depositWithdrawButton.click();
@@ -58,9 +58,9 @@ public class CustomerAccountPage {
 
     public void makeWithdraw() {
         withdrawButton.click();
-        Boolean firstResult = new WebDriverWait(driver, Duration.ofSeconds(10))
+        Boolean isWithdraw = new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.attributeToBe(form,"ng-submit","withdrawl()"));
-        if (firstResult) {
+        if (isWithdraw) {
             amountField.sendKeys(fibonacciString);
         }
         depositWithdrawButton.click();
