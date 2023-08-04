@@ -6,4 +6,4 @@ host = "localhost"
 [node]
 max-sessions = 12
 
-# java -jar selenium-server-4.11.0.jar standalone --config gridConfig.toml
+# java -jar selenium-server-4.11.0.jar standalone --config gridConfig.toml --selenium-manager true
