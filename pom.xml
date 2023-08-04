@@ -12,42 +12,46 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <selenium.java.version>4.11.0</selenium.java.version>
+        <junit.engine.version>5.10.0</junit.engine.version>
+        <junit.api.version>5.10.0</junit.api.version>
         <allure.junit5.version>2.23.0</allure.junit5.version>
         <allure.maven.version>2.12.0</allure.maven.version>
         <maven.surefire.plugin.version>3.0.0-M3</maven.surefire.plugin.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <aspectj.version>1.9.6</aspectj.version>
+        <opencsv.version>5.8</opencsv.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.11.0</version>
+            <version>${selenium.java.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.10.0</version>
+            <version>${junit.engine.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.10.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.opencsv</groupId>
-            <artifactId>opencsv</artifactId>
-            <version>5.3</version>
+            <version>${junit.api.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit5</artifactId>
             <version>${allure.junit5.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>${opencsv.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
