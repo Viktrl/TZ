@@ -13,12 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CSVFileMaker extends Urls {
-    WebElement dateTimeOfTransaction1;
-    WebElement amountOfTransaction1;
-    WebElement typeOfTransaction1;
-    WebElement dateTimeOfTransaction2;
-    WebElement amountOfTransaction2;
-    WebElement typeOfTransaction2;
+    private final WebElement dateTimeOfTransaction1;
+    private final WebElement amountOfTransaction1;
+    private final WebElement typeOfTransaction1;
+    private final WebElement dateTimeOfTransaction2;
+    private final WebElement amountOfTransaction2;
+    private final WebElement typeOfTransaction2;
 
     public CSVFileMaker(TransactionsPage transactionsPage) {
         this.dateTimeOfTransaction1 = transactionsPage.getDateTimeOfTransaction1();
@@ -49,7 +49,7 @@ public class CSVFileMaker extends Urls {
     }
 
     @Attachment(value = "test", type = "text/csv", fileExtension = ".csv")
-    static byte[] attachCSV(String filePath) {
+    private static byte[] attachCSV(String filePath) {
         try {
             return Files.readAllBytes(Paths.get(filePath));
         } catch (Exception e) {

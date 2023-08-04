@@ -6,7 +6,6 @@ import Pages.HomePage;
 import Pages.TransactionsPage;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
@@ -14,11 +13,10 @@ import java.net.URL;
 import java.time.Duration;
 
 public class BankAppTest extends Urls {
-    WebDriver driver;
+    private WebDriver driver;
 
     @BeforeEach
     public void setup() throws MalformedURLException {
-        WebDriverManager.chromedriver().setup();
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
         driver = new RemoteWebDriver(new URL(gridUrl), capabilities);

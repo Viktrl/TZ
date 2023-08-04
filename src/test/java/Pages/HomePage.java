@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
     private WebDriver driver;
-    private static String url = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login";
+    private String url = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login";
 
     @FindBy(xpath = "//div/div/div[2]/div/div[1]/div[1]/button")
     private WebElement customerLogin;
