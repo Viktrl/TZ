@@ -1,14 +1,13 @@
 package Pages;
 
+import Helpers.Base;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class TransactionsPage {
-    private WebDriver driver;
-
+public class TransactionsPage extends Base {
     @FindBy(xpath = "//div/div/div[2]/div/div[1]/button[1]")
     private WebElement backButton;
     @FindBy(xpath = "//*[@id=\"start\"]")

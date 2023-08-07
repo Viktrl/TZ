@@ -1,10 +1,7 @@
 package Helpers;
 
-import Pages.TransactionsPage;
 import com.opencsv.CSVWriter;
 import io.qameta.allure.Attachment;
-import org.openqa.selenium.WebElement;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,27 +9,30 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CSVFileMaker extends Urls {
-    private final WebElement dateTimeOfTransaction1;
-    private final WebElement amountOfTransaction1;
-    private final WebElement typeOfTransaction1;
-    private final WebElement dateTimeOfTransaction2;
-    private final WebElement amountOfTransaction2;
-    private final WebElement typeOfTransaction2;
+public class CSVFileMaker {
+    private final String dateTimeOfTransaction1;
+    private final String amountOfTransaction1;
+    private final String typeOfTransaction1;
+    private final String dateTimeOfTransaction2;
+    private final String amountOfTransaction2;
+    private final String typeOfTransaction2;
+    private final String filePath;
 
-    public CSVFileMaker(TransactionsPage transactionsPage) {
-        this.dateTimeOfTransaction1 = transactionsPage.getDateTimeOfTransaction1();
-        this.amountOfTransaction1 = transactionsPage.getAmountOfTransaction1();
-        this.typeOfTransaction1 = transactionsPage.getTypeOfTransaction1();
-        this.dateTimeOfTransaction2 = transactionsPage.getDateTimeOfTransaction2();
-        this.amountOfTransaction2 = transactionsPage.getAmountOfTransaction2();
-        this.typeOfTransaction2 = transactionsPage.getTypeOfTransaction2();
-    }
+    public CSVFileMaker(String dateTimeOfTransaction1, String amountOfTransaction1,
+                        String typeOfTransaction1, String dateTimeOfTransaction2, String amountOfTransaction2,
+                        String typeOfTransaction2, String filePath) {
+        this.dateTimeOfTransaction1 = dateTimeOfTransaction1;
+        this.amountOfTransaction1 = amountOfTransaction1;
+        this.typeOfTransaction1 = typeOfTransaction1;
+        this.dateTimeOfTransaction2 = dateTimeOfTransaction2;
+        this.amountOfTransaction2 = amountOfTransaction2;
+        this.typeOfTransaction2 = typeOfTransaction2;
+        this.filePath = filePath;}
 
     public void initDataForGenerateCSV() {
         String[] header = {"Дата-времяТранзакции", "Сумма", "ТипТранзакции"};
-        String[] record1 = {dateTimeOfTransaction1.getText(), amountOfTransaction1.getText(), typeOfTransaction1.getText()};
-        String[] record2 = {dateTimeOfTransaction2.getText(), amountOfTransaction2.getText(), typeOfTransaction2.getText()};
+        String[] record1 = {dateTimeOfTransaction1, amountOfTransaction1, typeOfTransaction1};
+        String[] record2 = {dateTimeOfTransaction2, amountOfTransaction2, typeOfTransaction2};
 
         List<String[]> list = new ArrayList<>();
         list.add(header);

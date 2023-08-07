@@ -1,13 +1,12 @@
 package Pages;
 
+import Helpers.Base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CustomerChoicePage {
-    private WebDriver driver;
-
+public class CustomerChoicePage extends Base {
     @FindBy(id = "userSelect")
     private WebElement userSelect;
     @FindBy(xpath = "//*[@id=\"userSelect\"]/option[3]")
@@ -20,12 +19,12 @@ public class CustomerChoicePage {
         PageFactory.initElements(driver, this);
     }
 
-    public void userSelect() {
+    public void customerSelect() {
         userSelect.click();
         userHarryPotter.click();
     }
 
-    public void loginButton() {
+    public void loginInCustomer() {
         loginButton.click();
     }
 }
