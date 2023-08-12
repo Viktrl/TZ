@@ -11,6 +11,6 @@ public class Base {
     public String gridUrl = "http://localhost:4445";
     public String filePathForMakeCSV = "test.csv";
 
-    LocalDate localDate = LocalDate.now();
+    public LocalDate localDate = LocalDate.now();
     protected int day = localDate.getDayOfMonth() + 1;
 }

@@ -2,6 +2,7 @@ package Helpers;
 
 import com.opencsv.CSVWriter;
 import io.qameta.allure.Attachment;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -27,7 +28,8 @@ public class CSVFileMaker {
         this.dateTimeOfTransaction2 = dateTimeOfTransaction2;
         this.amountOfTransaction2 = amountOfTransaction2;
         this.typeOfTransaction2 = typeOfTransaction2;
-        this.filePath = filePath;}
+        this.filePath = filePath;
+    }
 
     public void initDataForGenerateCSV() {
         String[] header = {"Дата-времяТранзакции", "Сумма", "ТипТранзакции"};

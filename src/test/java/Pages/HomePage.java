@@ -16,7 +16,6 @@ public class HomePage extends Base {
         PageFactory.initElements(driver, this);
     }
 
-
     public void customerLoginButton() {
         customerLogin.click();
     }

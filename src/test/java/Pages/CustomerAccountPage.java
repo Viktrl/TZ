@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
 
 public class CustomerAccountPage extends Base {
@@ -37,7 +38,7 @@ public class CustomerAccountPage extends Base {
     public void makeDeposit() {
         expandDepositForm.click();
         Boolean isDepositForm = new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.attributeToBe(form,"ng-submit","deposit()"));
+                .until(ExpectedConditions.attributeToBe(form, "ng-submit", "deposit()"));
         if (isDepositForm) {
             amountField.sendKeys(fibonacciString);
         }
@@ -47,7 +48,7 @@ public class CustomerAccountPage extends Base {
     public void makeWithdraw() {
         expandWithdrawForm.click();
         Boolean isWithdrawForm = new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.attributeToBe(form,"ng-submit","withdrawl()"));
+                .until(ExpectedConditions.attributeToBe(form, "ng-submit", "withdrawl()"));
         if (isWithdrawForm) {
             amountField.sendKeys(fibonacciString);
         }
